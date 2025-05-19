@@ -21,10 +21,10 @@ def process_file(name_data: str, path: str, key_name: str) -> pd.DataFrame:
         print(f"Error processing file '{name_data}': {e}")
         return pd.DataFrame()
 
+
 def concat_dict(key_name: str, path: str) -> pd.DataFrame:
     """Procesa en paralelo los archivos del directorio `path` y concatena los datos bajo `key_name`."""
     file_names = extract_file_name(path)
-
     with Pool(processes=cpu_count()) as pool:
         # Ejecutar procesamiento en paralelo
         results = [
